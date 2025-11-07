@@ -13,3 +13,32 @@ como una lista.
 if __name__ == "__main__":
     Sirve para ejecutar un bloque de código solo cuando el script se ejecuta directamente, y no cuando se importa 
     como un módulo en otro archivo.
+
+Versión adaptada del material del Prof. Roberto Méndez Méndez
+
+Software: Python (implementado en GitHub)
+
+Repositorio: https://github.com/tuusuario/programa-haskell-funcional
+
+Probar codigo en: https://www.jdoodle.com/execute-haskell-online
+
+Editores: 
+          
+Creado: 06 / 11 / 2025
+"""
+from typing import Generator
+
+def fibGen(n: int) -> Generator[int, None, None]:
+      yield 0
+      if n > 0:
+          yield 1
+      penultimo: int = 0
+      ultimo:    int = 1
+      for _ in range(1, n):
+          penultimo, ultimo = ultimo, penultimo + ultimo
+          yield ultimo
+
+if __name__ == "__main__":
+    n = int(input("¿Fibonacci hasta la posición?: "))
+    for i in fibGen(n):    
+        print(i)
