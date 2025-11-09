@@ -18,27 +18,44 @@ Versión adaptada del material del Prof. Roberto Méndez Méndez
 
 Software: Python (implementado en GitHub)
 
-Repositorio: https://github.com/tuusuario/programa-haskell-funcional
+Repositorio:  https://github.com/cynthia04-code/fibonacci_replicas.py/tree/main
 
 Probar codigo en:https://www.jdoodle.com/python3-programming-online
 
-Editores: 
+Editores: Ciros Ortíz Diego
+          Isauro Trinidad Cynthia 
+          Soto Álvarez Regina 
           
-Creado: 06 / 11 / 2025
+Creado:  06 / 11 / 2025
+Editado: 08 / 11 / 2025
 """
 from typing import Generator
 
 def fibGen(n: int) -> Generator[int, None, None]:
-      yield 0
-      if n > 0:
-          yield 1
-      penultimo: int = 0
-      ultimo:    int = 1
-      for _ in range(1, n):
-          penultimo, ultimo = ultimo, penultimo + ultimo
-          yield ultimo
+    """Genera los valores de la secuencia de Fibonacci hasta la posición n."""
+    if n < 0:
+        raise ValueError("El número debe ser un entero no negativo.")
+
+    yield 0
+    if n > 0:
+        yield 1
+
+    penultimo: int = 0
+    ultimo: int = 1
+    for _ in range(1, n):
+        penultimo, ultimo = ultimo, penultimo + ultimo
+        yield ultimo
+
 
 if __name__ == "__main__":
-    n = int(input("¿Fibonacci hasta la posición?: "))
-    for i in fibGen(n):    
-        print(i)
+    try:
+        n = int(input("¿Hasta qué posición deseas generar Fibonacci?: "))
+        if n < 0:
+            print("Por favor, ingresa un número entero no negativo.")
+        else:
+            print(f"Secuencia de Fibonacci hasta {n}:")
+            for valor in fibGen(n):
+                print(valor, end=" ")
+            print()
+    except ValueError:
+        print("Error: Debes ingresar un número entero válido.")
