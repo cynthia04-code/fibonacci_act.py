@@ -20,7 +20,7 @@ Software: Python (implementado en GitHub)
 
 Repositorio: https://github.com/tuusuario/programa-haskell-funcional
 
-Probar codigo en: https://www.jdoodle.com/execute-haskell-online
+Probar codigo en:https://www.jdoodle.com/python3-programming-online
 
 Editores: 
           
